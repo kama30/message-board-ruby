@@ -1,8 +1,21 @@
 <h1>id: <%= @message.id %> のメッセージ詳細ページ</h1>
 
-<p>タイトル: <%= @message.title %></p>
-<p>メッセージ: <%= @message.content %></p>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row">id</th>
+      <td><%= @message.id %></td>
+    </tr>
+    <tr>
+      <th scope="row">タイトル</th>
+      <td><%= @message.title %></td>
+    </tr>
+    <tr>
+      <th scope="row">メッセージ</th>
+      <td><%= @message.content %></td>
+    </tr>
+  </tbody>
+</table>
 
-<%= link_to '一覧に戻る', messages_path %>
-<%= link_to 'このメッセージを編集する', edit_message_path(@message) %>
-<%= link_to 'このメッセージを削除する',  @message, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to 'このメッセージを編集する', edit_message_path(@message), class: "btn btn-light" %>
+<%= link_to 'このメッセージを削除する',  @message, method: :delete, class: "btn btn-danger", data: { confirm: '本当に削除してよろしいですか？' } %>
